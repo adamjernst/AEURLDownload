@@ -94,6 +94,7 @@ NSString *AEURLDownloadErrorDomain = @"AEURLDownloadErrorDomain";
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     [self setConnection:nil];
+    [_writeHandle synchronizeFile];
     _handler([self response], _downloadURL, nil);
 }
 
